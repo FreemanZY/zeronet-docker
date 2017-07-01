@@ -11,17 +11,9 @@ RUN mkdir /zeronet \
     && tar zxvpf master.tar.gz \
     && rm -f master.tar.gz
 
-RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 1\nRunAsDaemon 1" > /etc/tor/torrc
-
-RUN echo -e "HTTPProxy 192.168.100.3:6153" >> /etc/tor/torrc
+RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 1\nRunAsDaemon 1\nSocks5Proxy 192.168.100.3:6153" > /etc/tor/torrc
 
 WORKDIR /zeronet/ZeroNet-master
-
-ADD . /root
-VOLUME /root/data
-
-EXPOSE 43110
-EXPOSE 15441
 
 CMD /usr/bin/tor \
     && python zeronet.py --ui_ip 0.0.0.0
