@@ -15,8 +15,8 @@ RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 
 
 WORKDIR /zeronet/ZeroNet-master
 
-ADD . /root
-VOLUME /root/data
+ADD . /data
+VOLUME /data
 
 EXPOSE 43110
 EXPOSE 15441
