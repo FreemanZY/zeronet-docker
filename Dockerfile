@@ -11,7 +11,7 @@ RUN mkdir /zeronet \
     && tar zxvpf master.tar.gz \
     && rm -f master.tar.gz
 
-RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 1\nRunAsDaemon 1" > /etc/tor/torrc
+RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 1\nRunAsDaemon 1\nHTTPProxy 172.16.20.23:7777" > /etc/tor/torrc
 
 WORKDIR /zeronet/ZeroNet-master
 
