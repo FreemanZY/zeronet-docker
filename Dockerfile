@@ -15,10 +15,5 @@ RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0\nCookieAuthentication 
 
 WORKDIR /zeronet/ZeroNet-master
 
-VOLUME /zeronet/ZeroNet-master/data
-
-EXPOSE 43110
-EXPOSE 15441
-
 CMD /usr/bin/tor \
     && python zeronet.py --ui_ip 0.0.0.0
